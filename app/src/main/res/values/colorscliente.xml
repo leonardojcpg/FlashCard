@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cor_app">#3F7E47</color>
+    <color name="cor_carrinho">#0c4b14</color>
+    <color name="cor_app_texto">#FFFFFF</color>
+    <color name="cor_botao_branco">#FFFFFF</color>
+    <color name="cor_splash">#FFFFFF</color>
+    <color name="cor_transparente_inicio">#FFFFFF</color>
+    <color name="cor_icone">#3F7E47</color>
+    <color name="cor_destaque">#3F7E47</color>
+    <color name="cor_destaque_texto">#FFFFFF</color>
+</resources>

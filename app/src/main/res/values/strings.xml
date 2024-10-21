@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FlashCardStudy</string>
+    <string name="ok">Ok</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="previous_image">previous</string>
+    <string name="flash_card_description">FlashCard description</string>
+    <string name="next_image">Next</string>
+    <string name="button_flashcard_send">Enviar</string>
+</resources>

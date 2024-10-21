@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#F0F0F0">
+
+    <!-- Layout para a área da imagem com as setas -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Seta para a esquerda -->
+        <ImageButton
+            android:id="@+id/cmdPreviousImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/previous_image"
+            android:padding="8dp"
+            android:rotationY="-180"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow_icon" />
+
+        <!-- Imagem principal -->
+        <ImageView
+            android:id="@+id/imgFlashCard"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/flash_card_description"
+            android:background="#DDDDDD" />
+
+        <!-- Seta para a direita -->
+        <ImageButton
+            android:id="@+id/cmdNextImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/arrow_icon"
+            android:contentDescription="@string/next_image"
+            android:scaleType="centerInside"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Campo de texto para resposta -->
+    <EditText
+        android:id="@+id/txtAnswerFlashCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o nome da imagem"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_flashcard_background"
+        android:layout_marginBottom="16dp"
+        android:inputType="text" />
+
+    <!-- Botão de envio -->
+    <Button
+        android:id="@+id/cmdSendResponse"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button_flashcard_send"
+        android:textColor="@color/cor_app_texto"
+        android:background="@drawable/button_background_app"
+        />
+
+    <!-- Mensagem de feedback para o usuário -->
+    <TextView
+        android:id="@+id/lblFeedbackAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mensagem de feedback ao usuario"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:textColor="#FF0000"
+        android:visibility="visible" />
+
+</LinearLayout>

@@ -2,4 +2,10 @@
 <resources>
     <dimen name="line_size_button">2dp</dimen>
     <dimen name="radius_size_button">10dp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="line_separator">0.5dp</dimen>
+    <dimen name="button_app_width">300dp</dimen>
+    <dimen name="button_app_height">50dp</dimen>
+    <dimen name="button_radius_google">10dp</dimen>
+    <dimen name="size_zero">0dp</dimen>
 </resources>

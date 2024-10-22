@@ -1,4 +1,5 @@
 <resources>
+    <!-- palavras comuns -->
     <string name="app_name">FlashCardStudy</string>
     <string name="ok">Ok</string>
     <string name="no">No</string>
@@ -7,4 +8,21 @@
     <string name="flash_card_description">FlashCard description</string>
     <string name="next_image">Next</string>
     <string name="button_flashcard_send">Enviar</string>
+    <string name="flashcard_image_desc">FlashCard description</string>
+    <string name="feedback_message">Feedback de mensagem ao usuario</string>
+
+    <!-- hints -->
+    <string name="hint_flashcard">Digite aqui sua resposta</string>
+    <string name="hint_login">Email</string>
+    <string name="hint_password">Digite sua senha</string>
+
+    <!-- toolbar -->
+    <string name="toolbar_login">Login</string>
+    <string name="back_toolbar">Back</string>
+    <string name="login">Login</string>
+    <string name="login_google">Login Google</string>
+    <string name="profile_no">Don\'t have register?</string>
+    <string name="password_forgot">Forgot password</string>
+    <string name="login_instagram">Login Instagram</string>
+
 </resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "903925945944",
+    "project_id": "flashcardforstudy",
+    "storage_bucket": "flashcardforstudy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903925945944:android:07b376cdd3738ad894dc2d",
+        "android_client_info": {
+          "package_name": "app.FlashCardStudy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg_ppTmD8gI-uTLGJHRWq2wCJMP2_lcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

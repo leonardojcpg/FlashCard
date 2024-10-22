@@ -1,0 +1,125 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:typeface">serif</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+    </style>
+
+    <style name="FonteTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/montmedio</item>
+    </style>
+
+    <style name="MontTabBarStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/montmedio</item>
+    </style>
+
+    <style name="AppDateDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/cor_app</item>
+    </style>
+
+    <style name="AppToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="titleTextColor">@color/cor_app</item>
+        <item name="subtitleTextColor">@color/dark_red</item>
+        <item name="tabIndicatorColor">@color/cor_app</item>
+        <item name="tabSelectedTextColor">@color/cor_app</item>
+        <item name="tabTextColor">@color/cor_app</item>
+        <item name="android:theme">@style/FonteTheme</item>
+    </style>
+
+
+    <style name="AppToolbarTransparente" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/cor_transparente</item>
+        <item name="titleTextColor">@color/cor_transparente_inicio</item>
+        <item name="subtitleTextColor">@color/cor_transparente_inicio</item>
+        <item name="tabIndicatorColor">@color/cor_transparente_inicio</item>
+        <item name="tabSelectedTextColor">@color/cor_transparente_inicio</item>
+        <item name="tabTextColor">@color/cor_transparente_inicio</item>
+        <item name="android:theme">@style/FonteTheme</item>
+    </style>
+
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/cor_app</item>
+        <item name="tabIndicatorHeight">@dimen/selection_bar_size</item>
+        <item name="tabBackground">@color/cor_cinza_fundo</item>
+        <item name="tabSelectedTextColor">@color/cor_app</item>
+        <item name="tabTextColor">@color/cor_app</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabTextAppearance">@style/MontTabBarStyle</item>
+    </style>
+
+    <style name="CollapsedToolbar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textColor">@color/cor_app</item>
+    </style>
+
+    <style name="TituloInicio">
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textColor">@color/cor_app_texto</item>
+    </style>
+
+    <style name="AppBottomNavigation" parent="Widget.Design.BottomNavigationView">
+        <item name="android:gravity">center|center_vertical</item>
+        <item name="android:background">@color/cor_app</item>
+        <item name="itemIconTint">@color/cor_app_texto</item>
+        <item name="itemTextColor">@color/cor_app_texto</item>
+    </style>
+
+    <!-- Estilo para todas as EditText de senha -->
+    <style name="CorInputLayoutSenha" parent="Widget.Design.TextInputLayout">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/cor_cinza</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/cor_cinza</item>
+        <item name="colorControlActivated">@color/cor_app</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="EstiloFloatButton" parent="Widget.Design.BottomNavigationView">
+        <item name="layout_anchorGravity">right|bottom</item>
+        <item name="backgroundTint">@color/cor_app</item>
+        <item name="fabSize">normal</item>
+        <item name="elevation">@dimen/elevacao_float_button</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+        <item name="tint">@color/cor_app_texto</item>
+    </style>
+
+    <style name="TextInputLayoutBranco" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColor">@color/cor_app_texto</item>
+        <item name="android:textColorHint">@color/cor_app_texto</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/dialog_rounded</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="Switch" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/cor_switch</item>
+        item name="android
+        <item name="android:colorForeground">@color/cor_cinza</item>
+    </style>
+
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="selection_bar_size">2dp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+</resources>

@@ -2,8 +2,15 @@ package App.FlashCardStudy.Base;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import App.FlashCardStudy.R;
+import App.FlashCardStudy.Utils.Support;
 
 
 public class FlashCardStudyActivity extends AppCompatActivity implements GeralCommunication
@@ -74,6 +81,39 @@ public class FlashCardStudyActivity extends AppCompatActivity implements GeralCo
         {
 //            LogTrace.escreve(Pekus.localErro(getClass(), err), Apoio.getPathLogs(this), Apoio.getArqErr());
 //            new AlertaPadrao(this, null).abreDialogoPadrao(Apoio.getMsgErr(getClass(), err), getString(R.string.atencao));
+        }
+    }
+
+    /**
+     * Passa por todas views da activity trocando a fonte para a padrão do projeto
+     * @param view
+     * @throws Exception
+     */
+    private void setFontActivity(ViewGroup view) throws Exception
+    {
+        View viewAux = null;
+        TextView textView = null;
+
+        // Fazemos um laço para passar pelas subviews da view recebida por parametro
+        for (int iPosicao = 0; iPosicao < view.getChildCount(); iPosicao++)
+        {
+            // recuperamos
+            viewAux = view.getChildAt(iPosicao);
+
+            // Se a view for um textview
+            if (viewAux instanceof TextView)
+            {
+                // Recuperamos o objeto do textview e aplicamos a fonte padrão
+                textView = (TextView)viewAux;
+                Support.setfont(this, textView, R.font.montmedio, textView.getTypeface().isBold(), textView.getTypeface().isItalic());
+            }
+            // Caso seja outro viewGroup
+            else if (viewAux instanceof ViewGroup)
+            {
+                // Invocamos o método mais uma vez para criar recurssividade
+                // e passar por todas as views da tela
+                setFontActivity((ViewGroup)viewAux);
+            }
         }
     }
 }

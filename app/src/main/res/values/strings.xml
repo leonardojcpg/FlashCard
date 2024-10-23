@@ -10,6 +10,7 @@
     <string name="button_flashcard_send">Enviar</string>
     <string name="flashcard_image_desc">FlashCard description</string>
     <string name="feedback_message">Feedback de mensagem ao usuario</string>
+    <string name="atention">Atention!</string>
 
     <!-- hints -->
     <string name="hint_flashcard">Digite aqui sua resposta</string>
@@ -24,5 +25,12 @@
     <string name="profile_no">Don\'t have register?</string>
     <string name="password_forgot">Forgot password</string>
     <string name="login_instagram">Login Instagram</string>
+
+    <!-- Toast -->
+    <string name="msg_toast_login_failed">Login failed</string>
+    <string name="msg_toast_login_success">Login success!</string>
+    <string name="msg_error_email_blank">Please, fill the blank space</string>
+    <string name="msg_erro_email_invalid">Invalid email</string>
+    <string name="msg_error_password_blank">Please, fill the password field</string>
 
 </resources>

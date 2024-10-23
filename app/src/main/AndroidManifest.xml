@@ -10,7 +10,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FlashCardStudy"
-        tools:targetApi="31" />
+        android:theme="@style/AppTheme"
+        tools:targetApi="31" >
+
+        <activity
+            android:name=".Screens.FrmLogin"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Screens.FrmCard"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
 
 </manifest>

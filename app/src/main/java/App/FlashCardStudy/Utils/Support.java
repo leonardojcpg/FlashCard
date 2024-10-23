@@ -1,15 +1,18 @@
 package App.FlashCardStudy.Utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Locale;
 
@@ -94,4 +97,56 @@ public class Support
         return iLanguage;
     }
 
+    /**
+     * Esta função serve para colocar uma fonte customizada que deve estar na pasta res/font.
+     *
+     * @param context  Contexto da activity
+     * @param textView TextView que sera colocado a fonte
+     * @param iFont    Fonte que será usada
+     */
+    public static void setfont(Context context, TextView textView, int iFont, boolean bBold, boolean bItalic) throws Exception
+    {
+        Typeface typeface = null;
+
+        //Cria a fonte
+        typeface = ResourcesCompat.getFont(context, iFont);
+
+        //Se não tiver negrito e italico
+        if ( !bBold && !bItalic )
+        {
+            //Seta a fonte na textview
+            textView.setTypeface(typeface);
+        }
+        //Se tiver negrito
+        else if ( bBold && !bItalic )
+        {
+            //Seta a fonte na textview
+            textView.setTypeface(typeface, Typeface.BOLD);
+        }
+        //Se tiver italico
+        else if ( !bBold && bItalic )
+        {
+            //Seta a fonte na textview
+            textView.setTypeface(typeface, Typeface.ITALIC);
+        }
+        //Se tiver os dois
+        else if ( bBold && bItalic )
+        {
+            //Seta a fonte na textview
+            textView.setTypeface(typeface, Typeface.BOLD_ITALIC);
+        }
+    }
+
+    /**
+     * Coloca uma view com foco na tela
+     */
+    public static void requestFocus(View view, AppCompatActivity activity) throws Exception
+    {
+        //Verifica se conseguiu solicitar o foco
+        if (view.requestFocus())
+        {
+            //Mostra o teclado
+            ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(view, 0);
+        }
+    }
 }

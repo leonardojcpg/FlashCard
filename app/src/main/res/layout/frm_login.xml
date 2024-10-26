@@ -22,19 +22,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
             android:layout_gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Login -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
-                <!-- Legenda -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -42,18 +40,16 @@
                     android:orientation="horizontal"
                     android:paddingLeft="10dp">
 
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/toolbar_login"
                         android:textColor="@color/cor_app"
                         android:textSize="@dimen/text_size_18"
-                        android:textStyle="italic" />
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
-                <!-- Campos -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,9 +130,6 @@
 
             </LinearLayout>
 
-            <!-- BOTÃO LOGIN -->
-
-            <!-- BOTÃO GOOGLE -->
             <Button
                 android:id="@+id/cmdLogin"
                 android:layout_width="@dimen/button_app_width"
@@ -153,21 +146,10 @@
                 android:layout_height="@dimen/button_app_height"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/google_button"
-                android:drawableLeft="@drawable/google_icon"
+                android:drawableStart="@drawable/google_icon_small"
                 android:paddingHorizontal="10dp"
                 android:text="@string/login_google"
-                android:textColor="@color/app_text_color"
-                android:visibility="visible" />
-
-            <Button
-                android:id="@+id/cmdLoginInstagram"
-                android:layout_width="@dimen/button_app_width"
-                android:layout_height="@dimen/button_app_height"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/instagram_button"
-                android:paddingHorizontal="10dp"
-                android:text="@string/login_instagram"
-                android:textColor="@color/app_text_color"
+                android:textColor="@color/colorAccent"
                 android:visibility="visible" />
 
             <TextView
@@ -178,7 +160,8 @@
                 android:layout_marginBottom="15dp"
                 android:gravity="center"
                 android:text="@string/password_forgot"
-                android:textColor="@color/cor_app" />
+                android:textColor="@color/cor_app"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/lblNoRegister"
@@ -186,7 +169,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/profile_no"
-                android:textColor="@color/cor_app" />
+                android:textColor="@color/cor_app"
+                android:textSize="16sp" />
 
         </LinearLayout>
 

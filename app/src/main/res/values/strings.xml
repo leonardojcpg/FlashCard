@@ -15,7 +15,7 @@
     <!-- hints -->
     <string name="hint_flashcard">Digite aqui sua resposta</string>
     <string name="hint_login">Email</string>
-    <string name="hint_password">Digite sua senha</string>
+    <string name="hint_password">Password</string>
 
     <!-- toolbar -->
     <string name="toolbar_login">Login</string>

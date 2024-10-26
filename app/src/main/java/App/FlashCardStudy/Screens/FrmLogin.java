@@ -13,6 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
+import App.FlashCardStudy.Base.FlashCardStudyClick;
 import App.FlashCardStudy.Constants.Const;
 import App.FlashCardStudy.Firebase.FirebaseLoginUser;
 import App.FlashCardStudy.R;
@@ -25,6 +26,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     private FirebaseLoginUser loginUser = null;
     private GoogleSignInOptions googleSignIn = null;
     private GoogleSignInClient googleSignInClient = null;
+    private FlashCardStudyClick flashCardStudyClick = null;
 
     //Controles da classe
     private Toolbar toolbar = null;
@@ -32,7 +34,6 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     private EditText txtPassword = null;
     private Button cmdLogin = null;
     private Button cmdLoginGoogle = null;
-    private Button cmdLoginInstagram = null;
     private TextView lblForgotPassword = null;
     private TextView lblNoRegister = null;
 
@@ -57,12 +58,15 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         txtPassword = findViewById(R.id.txtPasswod);
         cmdLogin = findViewById(R.id.cmdLogin);
         cmdLoginGoogle = findViewById(R.id.cmdLoginGoogle);
-        cmdLoginInstagram = findViewById(R.id.cmdLoginInstagram);
         lblForgotPassword = findViewById(R.id.lblForgotPassword);
         lblNoRegister = findViewById(R.id.lblNoRegister);
 
-        //Carrega o botão voltar da tela
-        Support.loadToolbarBack(toolbar, this);
+        //Setamos a classe de click, para evitarmos cliques duplos na aplicacao
+        flashCardStudyClick = new FlashCardStudyClick(this);
+
+        //Setamos o listener nos botoes
+        cmdLogin.setOnClickListener(this);
+        cmdLoginGoogle.setOnClickListener(this);
 
         // cria a configuracao de login com o google
         googleSignIn = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
@@ -70,6 +74,12 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
 
         //Ajusta a fonte do campo de senha
         Support.setfont(this, txtPassword, R.font.montmedio, false, false);
+        Support.setfont(this, txtEmail, R.font.montmedio, false, false);
+        Support.setfont(this, cmdLogin, R.font.montmedio, false, false);
+        Support.setfont(this, cmdLoginGoogle, R.font.montmedio, false, false);
+        Support.setfont(this, lblForgotPassword, R.font.montmedio, false, false);
+        Support.setfont(this, lblNoRegister, R.font.montmedio, false, false);
+
         txtPassword.setTransformationMethod(new PasswordTransformationMethod());
 
         // Define o listener do key para dar acao ao clicar no "enter" do teclado
@@ -79,10 +89,8 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     @Override
     public void loadData() throws Exception
     {
-        super.loadData();
-
-        //Carrega a toolbar
-        toolbar.setTitle(R.string.back_toolbar);
+        //Seta o titulo da toolbar como login ao iniciar a pagina
+        toolbar.setTitle(R.string.toolbar_login);
     }
 
     @Override

@@ -15,27 +15,24 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
 import App.FlashCardStudy.Base.FlashCardStudyClick;
 import App.FlashCardStudy.Constants.Const;
-import App.FlashCardStudy.Firebase.FirebaseLoginUser;
+import App.FlashCardStudy.Firebase.FirebaseRegisterUser;
 import App.FlashCardStudy.R;
 import App.FlashCardStudy.Utils.StandardAlert;
 import App.FlashCardStudy.Utils.Support;
 
-public class FrmLogin extends FlashCardStudyActivity implements View.OnClickListener, View.OnKeyListener
+public class FrmRegister extends FlashCardStudyActivity implements View.OnClickListener, View.OnKeyListener
 {
     //Variaveis da classe
-    private FirebaseLoginUser loginUser = null;
-    private GoogleSignInOptions googleSignIn = null;
-    private GoogleSignInClient googleSignInClient = null;
+    private FirebaseRegisterUser firebaseRegisterUser = null;
     private FlashCardStudyClick flashCardStudyClick = null;
 
     //Controles da classe
     private Toolbar toolbar = null;
     private EditText txtEmail = null;
     private EditText txtPassword = null;
-    private Button cmdLogin = null;
-    private Button cmdLoginGoogle = null;
-    private TextView lblForgotPassword = null;
-    private TextView lblNoRegister = null;
+    private EditText txtName = null;
+    private Button cmdRegister = null;
+    private TextView lblRegisterAlready = null;
 
     @Override
     protected void onCreate(Bundle bundleSavedInstanceState)
@@ -56,29 +53,22 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         toolbar = findViewById(R.id.toolbar);
         txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPasswod);
-        cmdLogin = findViewById(R.id.cmdLogin);
-        cmdLoginGoogle = findViewById(R.id.cmdLoginGoogle);
-        lblForgotPassword = findViewById(R.id.lblForgotPassword);
-        lblNoRegister = findViewById(R.id.lblNoRegister);
+        txtName = findViewById(R.id.txtName);
+        cmdRegister = findViewById(R.id.cmdRegister);
+        lblRegisterAlready = findViewById(R.id.lblRegisterAlready);
 
         //Setamos a classe de click, para evitarmos cliques duplos na aplicacao
         flashCardStudyClick = new FlashCardStudyClick(this);
 
         //Setamos o listener nos botoes
-        cmdLogin.setOnClickListener(this);
-        cmdLoginGoogle.setOnClickListener(this);
-
-        // cria a configuracao de login com o google
-        googleSignIn = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignIn);
+        cmdRegister.setOnClickListener(this);
+        lblRegisterAlready.setOnClickListener(this);
 
         //Ajusta a fonte do campo de senha
         Support.setfont(this, txtPassword, R.font.montmedio, false, false);
         Support.setfont(this, txtEmail, R.font.montmedio, false, false);
-        Support.setfont(this, cmdLogin, R.font.montmedio, false, false);
-        Support.setfont(this, cmdLoginGoogle, R.font.montmedio, false, false);
-        Support.setfont(this, lblForgotPassword, R.font.montmedio, false, false);
-        Support.setfont(this, lblNoRegister, R.font.montmedio, false, false);
+        Support.setfont(this, cmdRegister, R.font.montmedio, false, false);
+        Support.setfont(this, lblRegisterAlready, R.font.montmedio, false, false);
 
         txtPassword.setTransformationMethod(new PasswordTransformationMethod());
 
@@ -90,7 +80,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     public void loadData() throws Exception
     {
         //Seta o titulo da toolbar como login ao iniciar a pagina
-        toolbar.setTitle(R.string.toolbar_login);
+        //toolbar.setTitle(R.string.toolbar_login);
     }
 
     @Override
@@ -104,9 +94,9 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     {
         try
         {
-            if (view == cmdLogin)
+            if (view == cmdRegister)
             {
-                firebaseLogin();
+                firebaseRegister();
             }
         }
         catch (Exception e)
@@ -120,20 +110,21 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     /**
      * Faz o login de usuario
      */
-    public void firebaseLogin()
+    public void firebaseRegister()
     {
         String sEmail = "";
         String sPassword = "";
+
         try
         {
             //tenta fazer o login de usuario
-            loginUser.login(sEmail, sPassword);
-            Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT);
+            firebaseRegisterUser.register(sEmail, sPassword);
+            Toast.makeText(this, R.string.msg_toast_register_success, Toast.LENGTH_SHORT);
         }
         catch (Exception e)
         {
             //Exibe mensagem de erro em forma de toast
-            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_register_failed, Toast.LENGTH_SHORT);
         }
     }
 
@@ -158,10 +149,10 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
                     if (iKeyCode == KeyEvent.KEYCODE_ENTER)
                     {
                         // Verifica se os campos estao corretos
-                        if(loginValidation())
+                        if(registerValidation())
                         {
                             // Se estiverem corretos realiza o login por email
-                            firebaseLogin();
+                            firebaseRegister();
                         }
 
                         return true;
@@ -171,12 +162,12 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         } catch (Exception err)
         {
             //Exibe mensagem de erro na forma de toast
-            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_register_failed, Toast.LENGTH_SHORT);
         }
         return false;
     }
 
-    public boolean loginValidation() throws Exception
+    public boolean registerValidation() throws Exception
     {
         String sUser = "";
         String sPassword = "";
@@ -210,6 +201,12 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             Support.requestFocus(txtPassword, this);
             new StandardAlert(this, null).standardDialogQuestion(getString(R.string.msg_error_password_blank), getString(R.string.atention));
             return false;
+        }
+
+        if(sPassword.length() <= 4)
+        {
+            Support.requestFocus(txtPassword, this);
+            new StandardAlert(this, null).standardDialog(getString(R.string.msg_error_password), getString(R.string.atention));
         }
 
         //retorna se os campos estao validos

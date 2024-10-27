@@ -32,5 +32,14 @@
     <string name="msg_error_email_blank">Please, fill the blank space</string>
     <string name="msg_erro_email_invalid">Invalid email</string>
     <string name="msg_error_password_blank">Please, fill the password field</string>
+    <string name="toolbar_register">Register</string>
+    <string name="hint_name">Name</string>
+    <string name="button_register">Register</string>
+    <string name="profile_has">Already registered? Go to login!</string>
+    <string name="msg_toast_register_success">Registration done successfully!</string>
+    <string name="msg_toast_register_failed">Registration failed</string>
+    <string name="msg_toast_token_success">Successfully recovered token</string>
+    <string name="msg_toast_token_failed">Failed to retrieve token</string>
+    <string name="msg_error_password">Please, complete password field correctly</string>
 
 </resources>

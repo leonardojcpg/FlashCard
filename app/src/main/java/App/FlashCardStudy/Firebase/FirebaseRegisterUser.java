@@ -10,6 +10,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import androidx.annotation.NonNull;
 
+import App.FlashCardStudy.R;
+
 public class FirebaseRegisterUser
 {
     private FirebaseAuth mAuth;
@@ -22,34 +24,34 @@ public class FirebaseRegisterUser
     }
 
     // Método para registrar o usuário com email e senha
-    public void registerUser(String sEmail, String sPassword)
+    public void register(String sEmail, String sPassword)
     {
         mAuth.createUserWithEmailAndPassword(sEmail, sPassword)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+            .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+            {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task)
                 {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
+                    if (task.isSuccessful())
                     {
-                        if (task.isSuccessful())
-                        {
-                            // Registro realizado com sucesso
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(context, "Registro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                        // Registro realizado com sucesso
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(context, R.string.msg_toast_register_success, Toast.LENGTH_SHORT).show();
 
-                            // Obter o token do Firebase após o registro
-                            obtemAtualizacaoToken();
-                        }
-                        else
-                        {
-                            // Falha no registro
-                            Toast.makeText(context, "Falha no registro: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
+                        // Obter o token do Firebase após o registro
+                        getRefreshToken();
                     }
-                });
+                    else
+                    {
+                        // Falha no registro
+                        Toast.makeText(context, R.string.msg_toast_register_failed + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
     }
 
     // Método para obter o token do Firebase
-    private void obtemAtualizacaoToken()
+    private void getRefreshToken()
     {
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>()
                 {
@@ -59,12 +61,12 @@ public class FirebaseRegisterUser
                         if (task.isSuccessful())
                         {
                             String token = task.getResult();
-                            Toast.makeText(context, "Token obtido: " + token, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, R.string.msg_toast_token_success + token, Toast.LENGTH_SHORT).show();
                             // Aqui, você pode salvar o token em SharedPreferences, se necessário
                         }
                         else
                         {
-                            Toast.makeText(context, "Falha ao obter o token", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, R.string.msg_toast_token_failed, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

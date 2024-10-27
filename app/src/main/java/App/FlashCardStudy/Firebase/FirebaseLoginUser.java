@@ -10,6 +10,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import androidx.annotation.NonNull;
 
+import App.FlashCardStudy.R;
+
 public class FirebaseLoginUser
 {
     //Variaveis da classe
@@ -23,30 +25,38 @@ public class FirebaseLoginUser
     }
 
     // Método para login do usuário com email e senha
-    public void loginUser(String sEmail, String sPassword)
+    public void login(String sEmail, String sPassword)
     {
-        mAuth.signInWithEmailAndPassword(sEmail, sPassword)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+        mAuth
+            .signInWithEmailAndPassword(sEmail, sPassword)
+            .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+            {
+                //Variaveis do metodo
+                FirebaseUser user = null;
+
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task)
                 {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
+                    if (task.isSuccessful())
                     {
-                        if (task.isSuccessful()) {
-                            // Login realizado com sucesso
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(context, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                            // Obter o token do Firebase após o login
-                            obtemAtualizacaoToken();
-                        } else {
-                            // Falha no login
-                            Toast.makeText(context, "Falha no login: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
+                        // Login realizado com sucesso
+                        user = mAuth.getCurrentUser();
+                        Toast.makeText(context, R.string.msg_toast_login_success, Toast.LENGTH_SHORT).show();
+
+                        // Obter o token do Firebase após o login
+                        getRefreshToken();
                     }
-                });
+                    else
+                    {
+                        // Falha no login
+                        Toast.makeText(context, R.string.msg_toast_login_failed + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
     }
 
     // Método para obter o token do Firebase
-    private void obtemAtualizacaoToken()
+    private void getRefreshToken()
     {
 
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>()

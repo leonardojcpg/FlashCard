@@ -1,5 +1,6 @@
 package App.FlashCardStudy.Screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.KeyEvent;
@@ -65,8 +66,10 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         flashCardStudyClick = new FlashCardStudyClick(this);
 
         //Setamos o listener nos botoes
-        cmdLogin.setOnClickListener(this);
-        cmdLoginGoogle.setOnClickListener(this);
+        cmdLogin.setOnClickListener(flashCardStudyClick);
+        cmdLoginGoogle.setOnClickListener(flashCardStudyClick);
+        lblForgotPassword.setOnClickListener(flashCardStudyClick);
+        lblNoRegister.setOnClickListener(flashCardStudyClick);
 
         // cria a configuracao de login com o google
         googleSignIn = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
@@ -104,10 +107,19 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     {
         try
         {
+            //Se o clique for no botao de login
             if (view == cmdLogin)
             {
+                //Chama o metodo de login
                 firebaseLogin();
             }
+            //Se o clique for no botao de "nao tenho cadastro"
+            else if (view == lblNoRegister)
+            {
+                //Chama a tela de registro
+                goToRegisterScreen();
+            }
+
         }
         catch (Exception e)
         {
@@ -115,6 +127,14 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
         }
 
+    }
+
+    public void goToRegisterScreen()
+    {
+        Intent intent = null;
+
+        intent = new Intent(this, FrmRegister.class);
+        startActivity(intent);
     }
 
     /**
@@ -147,7 +167,8 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     @Override
     public boolean onKey(View view, int iKeyCode, KeyEvent event)
     {
-        try{
+        try
+        {
             // Se a view for o edit text da senha
             if (view == txtPassword)
             {

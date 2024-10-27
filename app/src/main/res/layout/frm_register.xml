@@ -51,27 +51,6 @@
                             android:orientation="vertical">
 
                             <EditText
-                                android:id="@+id/txtName"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:background="@null"
-                                android:hint="@string/hint_name"
-                                android:inputType="textPersonName"
-                                android:maxLength="100"
-                                android:padding="15dp"
-                                android:selectAllOnFocus="true"
-                                android:singleLine="true"
-                                android:textColor="@color/colorAccent"
-                                android:textColorHint="@color/cor_cinza"
-                                android:textSize="@dimen/text_size_18" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/line_separator"
-                                android:background="@color/cor_cinza_linhas" />
-
-                            <EditText
                                 android:id="@+id/txtEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

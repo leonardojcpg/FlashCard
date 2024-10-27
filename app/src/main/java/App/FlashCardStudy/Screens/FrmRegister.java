@@ -1,5 +1,6 @@
 package App.FlashCardStudy.Screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.KeyEvent;
@@ -30,7 +31,6 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
     private Toolbar toolbar = null;
     private EditText txtEmail = null;
     private EditText txtPassword = null;
-    private EditText txtName = null;
     private Button cmdRegister = null;
     private TextView lblRegisterAlready = null;
 
@@ -38,7 +38,7 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
     protected void onCreate(Bundle bundleSavedInstanceState)
     {
         //Seta o layout xml do formulario
-        setContentView(R.layout.frm_login);
+        setContentView(R.layout.frm_register);
 
         //O super vem depois, pois como estamos implementando de uma classe base,
         //se não ficar na sequencia não carrega os controles
@@ -53,7 +53,6 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
         toolbar = findViewById(R.id.toolbar);
         txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPasswod);
-        txtName = findViewById(R.id.txtName);
         cmdRegister = findViewById(R.id.cmdRegister);
         lblRegisterAlready = findViewById(R.id.lblRegisterAlready);
 
@@ -61,8 +60,8 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
         flashCardStudyClick = new FlashCardStudyClick(this);
 
         //Setamos o listener nos botoes
-        cmdRegister.setOnClickListener(this);
-        lblRegisterAlready.setOnClickListener(this);
+        cmdRegister.setOnClickListener(flashCardStudyClick);
+        lblRegisterAlready.setOnClickListener(flashCardStudyClick);
 
         //Ajusta a fonte do campo de senha
         Support.setfont(this, txtPassword, R.font.montmedio, false, false);
@@ -79,8 +78,6 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
     @Override
     public void loadData() throws Exception
     {
-        //Seta o titulo da toolbar como login ao iniciar a pagina
-        //toolbar.setTitle(R.string.toolbar_login);
     }
 
     @Override
@@ -98,6 +95,10 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
             {
                 firebaseRegister();
             }
+            else if (view == lblRegisterAlready)
+            {
+                goToLoginScreen();
+            }
         }
         catch (Exception e)
         {
@@ -105,6 +106,14 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
             Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
         }
 
+    }
+
+    public void goToLoginScreen()
+    {
+        Intent intent = null;
+
+        intent = new Intent(this, FrmLogin.class);
+        startActivity(intent);
     }
 
     /**

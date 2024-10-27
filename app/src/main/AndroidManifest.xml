@@ -25,6 +25,13 @@
         </activity>
 
         <activity
+            android:name=".Screens.FrmRegister"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
             android:name=".Screens.FrmCard"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
             android:exported="true"

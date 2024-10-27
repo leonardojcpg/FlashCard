@@ -10,9 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
 import App.FlashCardStudy.Base.FlashCardStudyClick;
 import App.FlashCardStudy.Constants.Const;
@@ -121,21 +119,28 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
      */
     public void firebaseRegister()
     {
-        String sEmail = "";
-        String sPassword = "";
+        String sEmail = txtEmail.getText().toString().trim();
+        String sPassword = txtPassword.getText().toString().trim();
 
         try
         {
-            //tenta fazer o login de usuario
-            firebaseRegisterUser.register(sEmail, sPassword);
-            Toast.makeText(this, R.string.msg_toast_register_success, Toast.LENGTH_SHORT);
+            //Se o registro de usuario for valido
+            if (registerValidation())
+            {
+                //Faz o registro
+                firebaseRegisterUser.register(sEmail, sPassword);
+
+                //Exibe a mensagem de sucesso
+                Toast.makeText(this, R.string.msg_toast_register_success, Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Exception e)
         {
-            //Exibe mensagem de erro em forma de toast
-            Toast.makeText(this, R.string.msg_toast_register_failed, Toast.LENGTH_SHORT);
+            //Se tiver erro, exibe a mensagem
+            Toast.makeText(this, R.string.msg_toast_register_failed + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+
 
     @Override
     public void onReceiveData(Class classes, int iId, boolean bResult, Object... oObjetcts)
@@ -171,22 +176,22 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
         } catch (Exception err)
         {
             //Exibe mensagem de erro na forma de toast
-            Toast.makeText(this, R.string.msg_toast_register_failed, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_register_failed, Toast.LENGTH_SHORT).show();
         }
         return false;
     }
 
     public boolean registerValidation() throws Exception
     {
-        String sUser = "";
+        String sEmail = "";
         String sPassword = "";
 
         //pega o usuario e a senha entrada pelo usuario
-        sUser = txtEmail.getText().toString().trim();
+        sEmail = txtEmail.getText().toString().trim();
         sPassword = txtPassword.getText().toString().trim();
 
         //verifica se o usuario(e-mail) foi preenchido
-        if ( sUser.length() <= 0 )
+        if ( sEmail.length() <= 0 )
         {
             // Foca o textField invalido e cria a mensagem para mostrar no alerta
             Support.requestFocus(txtEmail, this);
@@ -195,7 +200,7 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
         }
 
         //verifica se o e-mail esta correto
-        if (!sUser.matches(Const.REGEX_EMAIL))
+        if (!sEmail.matches(Const.REGEX_EMAIL))
         {
             // Foca o textField invalido e cria a mensagem para mostrar no alerta
             Support.requestFocus(txtEmail, this);
@@ -216,6 +221,7 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
         {
             Support.requestFocus(txtPassword, this);
             new StandardAlert(this, null).standardDialog(getString(R.string.msg_error_password), getString(R.string.atention));
+            return false;
         }
 
         //retorna se os campos estao validos

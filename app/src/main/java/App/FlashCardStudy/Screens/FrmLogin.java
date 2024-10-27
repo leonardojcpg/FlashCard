@@ -124,7 +124,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         catch (Exception e)
         {
             //Exibe mensagem de erro em forma de toast
-            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -148,12 +148,12 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         {
             //tenta fazer o login de usuario
             loginUser.login(sEmail, sPassword);
-            Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT).show();
         }
         catch (Exception e)
         {
             //Exibe mensagem de erro em forma de toast
-            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -192,7 +192,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         } catch (Exception err)
         {
             //Exibe mensagem de erro na forma de toast
-            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT).show();
         }
         return false;
     }

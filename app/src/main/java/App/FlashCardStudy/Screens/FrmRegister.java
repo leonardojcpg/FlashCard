@@ -54,6 +54,9 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
         cmdRegister = findViewById(R.id.cmdRegister);
         lblRegisterAlready = findViewById(R.id.lblRegisterAlready);
 
+        // Inicializa a instância do FirebaseRegisterUser
+        firebaseRegisterUser = new FirebaseRegisterUser(this);
+
         //Setamos a classe de click, para evitarmos cliques duplos na aplicacao
         flashCardStudyClick = new FlashCardStudyClick(this);
 
@@ -89,9 +92,14 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
     {
         try
         {
+            //Se o clique for no botao de registrar
             if (view == cmdRegister)
             {
+                //Faz o registro de usuario
                 firebaseRegister();
+
+                //Chama tela de login
+                goToLoginScreen();
             }
             else if (view == lblRegisterAlready)
             {

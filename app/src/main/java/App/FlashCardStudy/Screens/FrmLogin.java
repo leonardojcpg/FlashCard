@@ -3,6 +3,7 @@ package App.FlashCardStudy.Screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -62,6 +63,9 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         lblForgotPassword = findViewById(R.id.lblForgotPassword);
         lblNoRegister = findViewById(R.id.lblNoRegister);
 
+        // Inicializa a instância do FirebaseLoginUser
+        loginUser = new FirebaseLoginUser(this);
+
         //Setamos a classe de click, para evitarmos cliques duplos na aplicacao
         flashCardStudyClick = new FlashCardStudyClick(this);
 
@@ -112,6 +116,9 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             {
                 //Chama o metodo de login
                 firebaseLogin();
+
+                //Faz um log que o login foi feito com sucesso
+                Log.d("login", "login foi feito!");
             }
             //Se o clique for no botao de "nao tenho cadastro"
             else if (view == lblNoRegister)
@@ -144,11 +151,15 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
     {
         String sEmail = "";
         String sPassword = "";
+
         try
         {
-            //tenta fazer o login de usuario
-            loginUser.login(sEmail, sPassword);
-            Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT).show();
+            if (loginValidation())
+            {
+                //tenta fazer o login de usuario
+                loginUser.login(sEmail, sPassword);
+                Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Exception e)
         {

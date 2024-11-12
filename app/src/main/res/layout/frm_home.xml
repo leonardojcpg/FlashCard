@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cor_cinza_fundo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background_app" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- LAYOUT DOS BOTÕES -->
+        <LinearLayout
+            android:id="@+id/lnlButtons"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_zero"
+            android:layout_weight="60"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- BOTÃO VER CARDAPIO -->
+            <Button
+                android:id="@+id/cmdFlashcardGame"
+                android:layout_width="@dimen/button_app_width"
+                android:layout_height="@dimen/button_app_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/google_button"
+                android:text="@string/flashcard_game_home_button"
+                android:textColor="@color/colorAccent" />
+
+            <!-- BOTÃO REGISTRAR CONTA OU ENTRAR -->
+            <Button
+                android:id="@+id/cmdLogin"
+                android:layout_width="@dimen/button_app_width"
+                android:layout_height="@dimen/button_app_height"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_background_app"
+                android:text="@string/login"
+                android:textColor="@color/cor_app_texto" />
+
+            <!-- BOTÃO ENTRAR COM ENDEREÇO -->
+            <Button
+                android:id="@+id/cmdRegister"
+                android:layout_width="@dimen/button_app_width"
+                android:layout_height="@dimen/button_app_height"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_background_app"
+                android:text="@string/button_register"
+                android:textColor="@color/cor_app_texto" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

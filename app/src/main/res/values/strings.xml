@@ -41,5 +41,6 @@
     <string name="msg_toast_token_success">Successfully recovered token</string>
     <string name="msg_toast_token_failed">Failed to retrieve token</string>
     <string name="msg_error_password">Please, complete password field correctly</string>
+    <string name="flashcard_game_home_button">Flash Card Game</string>
 
 </resources>

@@ -116,9 +116,6 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             {
                 //Chama o metodo de login
                 firebaseLogin();
-
-                //Faz um log que o login foi feito com sucesso
-                Log.d("login", "login foi feito!");
             }
             //Se o clique for no botao de "nao tenho cadastro"
             else if (view == lblNoRegister)

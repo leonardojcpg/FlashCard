@@ -31,34 +31,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:background="@drawable/edittext_rounded_background"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
 
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:cardElevation="3dp"
-                        app:cardUseCompatPadding="true">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <LinearLayout
+                        <EditText
+                            android:id="@+id/txtEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:hint="@string/hint_login"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="100"
+                            android:padding="15dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/cor_cinza"
+                            android:textSize="@dimen/text_size_18" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/line_separator"
+                            android:background="@color/cor_cinza_linhas" />
+
+                        <!-- EDITTEXT SENHA -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputSenha"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:theme="@style/CorInputLayoutSenha"
+                            app:hintEnabled="false"
+                            app:passwordToggleEnabled="true"
+                            app:passwordToggleTint="@color/cor_app">
 
                             <EditText
-                                android:id="@+id/txtEmail"
+                                android:id="@+id/txtPasswod"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
                                 android:background="@null"
-                                android:hint="@string/hint_login"
-                                android:inputType="textEmailAddress"
-                                android:maxLength="100"
+                                android:hint="@string/hint_password"
+                                android:inputType="textPassword"
+                                android:maxLength="45"
                                 android:padding="15dp"
                                 android:selectAllOnFocus="true"
                                 android:singleLine="true"
@@ -66,50 +88,9 @@
                                 android:textColorHint="@color/cor_cinza"
                                 android:textSize="@dimen/text_size_18" />
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/line_separator"
-                                android:background="@color/cor_cinza_linhas" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                            <!-- EDITTEXT SENHA -->
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/inputSenha"
-                                style="@style/Widget.Design.TextInputLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:theme="@style/CorInputLayoutSenha"
-                                app:hintEnabled="false"
-                                app:passwordToggleEnabled="true"
-                                app:passwordToggleTint="@color/cor_app">
-
-                                <EditText
-                                    android:id="@+id/txtPasswod"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@null"
-                                    android:hint="@string/hint_password"
-                                    android:inputType="textPassword"
-                                    android:maxLength="45"
-                                    android:padding="15dp"
-                                    android:selectAllOnFocus="true"
-                                    android:singleLine="true"
-                                    android:textColor="@color/colorAccent"
-                                    android:textColorHint="@color/cor_cinza"
-                                    android:textSize="@dimen/text_size_18" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/line_separator"
-                                android:background="@color/cor_cinza_linhas" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
+                    </LinearLayout>
 
             </LinearLayout>
 

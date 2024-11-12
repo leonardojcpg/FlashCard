@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout;
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
 import App.FlashCardStudy.R;
 
-public class FrmMain extends FlashCardStudyActivity implements View.OnClickListener, MenuItemCompat.OnActionExpandListener, BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, TabLayout.OnTabSelectedListener, SwipeRefreshLayout.OnRefreshListener
+public class FrmMain extends FlashCardStudyActivity implements View.OnClickListener, MenuItemCompat.OnActionExpandListener, BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, TabLayout.OnTabSelectedListener
 {
     //Variaveis da classe
 

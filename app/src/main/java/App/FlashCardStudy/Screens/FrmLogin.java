@@ -3,7 +3,6 @@ package App.FlashCardStudy.Screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -116,6 +115,9 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             {
                 //Chama o metodo de login
                 firebaseLogin();
+
+                //Chama a tela inicial
+                goToMainScreen();
             }
             //Se o clique for no botao de "nao tenho cadastro"
             else if (view == lblNoRegister)
@@ -141,6 +143,14 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         startActivity(intent);
     }
 
+    public void goToMainScreen()
+    {
+        Intent intent = null;
+
+        intent = new Intent(this, FrmMain.class);
+        startActivity(intent);
+    }
+
     /**
      * Faz o login de usuario
      */
@@ -155,6 +165,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             {
                 //tenta fazer o login de usuario
                 loginUser.login(sEmail, sPassword);
+                //Exibe o toast de sucesso de login
                 Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT).show();
             }
         }

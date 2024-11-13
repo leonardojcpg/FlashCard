@@ -11,4 +11,7 @@
     <dimen name="elevacao_float_button">2dp</dimen>
     <dimen name="standard_dialog_width">300dp</dimen>
     <dimen name="standard_dialog_question_width">300dp</dimen>
+    <dimen name="elevacao_app_bar_principal">2dp</dimen>
+    <dimen name="altura_barra_carrinho">40dp</dimen>
+    <dimen name="tamanho_texto_16">16sp</dimen>
 </resources>

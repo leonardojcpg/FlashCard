@@ -42,5 +42,10 @@
     <string name="msg_toast_token_failed">Failed to retrieve token</string>
     <string name="msg_error_password">Please, complete password field correctly</string>
     <string name="flashcard_game_home_button">Flash Card Game</string>
+    <string name="item_home_icon">Home</string>
+    <string name="toolbar_principal">Menu</string>
+    <string name="item_history">History</string>
+    <string name="profile_icon">Profile</string>
+    <string name="toolbar_main">FlashCard</string>
 
 </resources>

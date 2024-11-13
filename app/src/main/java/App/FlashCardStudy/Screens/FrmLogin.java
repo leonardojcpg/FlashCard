@@ -115,9 +115,6 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             {
                 //Chama o metodo de login
                 firebaseLogin();
-
-                //Chama a tela inicial
-                goToMainScreen();
             }
             //Se o clique for no botao de "nao tenho cadastro"
             else if (view == lblNoRegister)
@@ -165,6 +162,10 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
             {
                 //tenta fazer o login de usuario
                 loginUser.login(sEmail, sPassword);
+
+                //Se obtiver sucesso no login, encaminha para a tela inicial do jogo
+                goToMainScreen();
+
                 //Exibe o toast de sucesso de login
                 Toast.makeText(this, R.string.msg_toast_login_success, Toast.LENGTH_SHORT).show();
             }

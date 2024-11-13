@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
 import App.FlashCardStudy.Base.FlashCardStudyClick;
 import App.FlashCardStudy.R;
@@ -15,6 +19,7 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
 {
     //Variaveis da classe
     private FlashCardStudyClick flashCardClick = null;
+    private FirebaseUser currentUser = null;
 
     //Controles da classe
     private Button cmdFlashcardGame = null;
@@ -68,12 +73,26 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
     @Override
     public void onClick(View view)
     {
+        //Recupera o usuario logado
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
         try
         {
             //Se o clique for no botao de iniciar um jogo
             if (view == cmdFlashcardGame)
             {
-                //Chama a tela de novo jogo
+                //Valida se o usuario está logado
+                if(currentUser != null)
+                {
+                    //Chama a tela de novo jogo
+                    goToFlashCardGameScreen();
+                }
+                else
+                {
+                    //Chama a tela de login
+                    goToLoginScreen();
+                }
+
             }
             //Se o clique for no botao de login
             else if (view == cmdLogin)
@@ -129,6 +148,7 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
     {
         Intent intent = null;
 
+        //Chama a tela de login
         intent = new Intent(this, FrmLogin.class);
         startActivity(intent);
     }
@@ -140,7 +160,21 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
     {
         Intent intent = null;
 
+        //Chama a tela de registro
         intent = new Intent(this, FrmRegister.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Método que chama a tela do jogo flashcard
+
+     */
+    public void goToFlashCardGameScreen()
+    {
+        Intent intent = null;
+
+        //Chama a tela principal do jogo
+        intent = new Intent(this, FrmMain.class);
         startActivity(intent);
     }
 

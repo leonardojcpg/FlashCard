@@ -97,9 +97,6 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
             {
                 //Faz o registro de usuario
                 firebaseRegister();
-
-                //Chama tela de login
-                goToLoginScreen();
             }
             else if (view == lblRegisterAlready)
             {
@@ -137,6 +134,9 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
             {
                 //Faz o registro
                 firebaseRegisterUser.register(sEmail, sPassword);
+
+                //Se obtiver sucesso no registro de usuario, encaminha para a tela de login
+                goToLoginScreen();
 
                 //Exibe a mensagem de sucesso
                 Toast.makeText(this, R.string.msg_toast_register_success, Toast.LENGTH_SHORT).show();

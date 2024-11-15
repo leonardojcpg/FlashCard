@@ -33,7 +33,7 @@
             android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:background="@color/app_color"
+            android:background="@color/cor_app"
             android:text="@string/no"
             android:textColor="@color/app_text_color" />
 
@@ -42,7 +42,7 @@
             android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:background="@color/app_color"
+            android:background="@color/cor_app"
             android:text="@string/yes"
             android:textColor="@color/app_text_color"
             />

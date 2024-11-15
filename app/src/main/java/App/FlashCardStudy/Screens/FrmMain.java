@@ -1,5 +1,6 @@
 package App.FlashCardStudy.Screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -109,19 +110,19 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
             if (iIdMenu == R.id.item_home)
             {
                 //Volta pra tela de inicio
-                //goToMainScreen();
+                goToMainScreen();
             }
             //Se o clique for do historico de jogos
             else if (iIdMenu == R.id.item_historico)
             {
                 //Chama a tela de historico de jogos
-                //goToGameHistory();
+                goToHistory();
             }
             //Se o clique for no item de perfil
             else if (iIdMenu == R.id.item_profile)
             {
                 //Chama a tela de perfil de usuario
-                //goToProfileScreen();
+                goToProfileScreen();
             }
 
         }
@@ -157,5 +158,41 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
     @Override
     public void onTabReselected(TabLayout.Tab tab)
     {
+    }
+
+    /**
+     * Metodo que chama a tela home
+     */
+    private void goToMainScreen()
+    {
+        Intent intent = null;
+
+        //Chama a tela principal
+        intent = new Intent(this, FrmMain.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Metodo que chama a tela de historico de jogos
+     */
+    private void goToHistory()
+    {
+        Intent intent = null;
+
+        //Chama a tela principal
+        intent = new Intent(this, FrmHistory.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Metodo que chama a tela de perfil
+     */
+    private void goToProfileScreen()
+    {
+        Intent intent = null;
+
+        //Chama a tela principal
+        intent = new Intent(this, FrmProfile.class);
+        startActivity(intent);
     }
 }

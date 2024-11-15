@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import App.FlashCardStudy.Base.GeralCommunication;
 import App.FlashCardStudy.Constants.Const;
@@ -30,6 +32,7 @@ public class StandardAlert implements View.OnClickListener
     //Variáveis da classe
     private Context context = null;
     private GeralCommunication geralCommunication = null;
+
 
     /**
      * Construtor da classe
@@ -169,7 +172,9 @@ public class StandardAlert implements View.OnClickListener
         }
         catch (Exception err)
         {
-            //LogTrace.escreve(Pekus.localErro(getClass(), err), Apoio.getPathLogs(context), Apoio.getArqErr());
+            //Exibe mensagem de erro
+            new StandardAlert(context, null).standardDialog(Support.getMsgErr(context, err), context.getString(R.string.atention));
+
         }
     }
 }

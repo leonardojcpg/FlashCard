@@ -35,6 +35,16 @@
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".Screens.FrmHistory"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Screens.FrmProfile"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".Screens.FrmCard"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|uiMode|density|fontScale|layoutDirection|fontWeightAdjustment|navigation|colorMode|screenLayout|smallestScreenSize"
             android:exported="true"

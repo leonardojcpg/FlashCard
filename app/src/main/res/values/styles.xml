@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:typeface">serif</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:fontFamily">@font/montmedio</item>
     </style>
 
     <style name="FonteTheme" parent="ThemeOverlay.AppCompat.Light">
@@ -69,6 +70,7 @@
         <item name="android:background">@color/cor_app</item>
         <item name="itemIconTint">@color/cor_app_texto</item>
         <item name="itemTextColor">@color/cor_app_texto</item>
+        <item name="android:fontFamily">@font/montmedio</item>
     </style>
 
     <!-- Estilo para todas as EditText de senha -->
@@ -105,6 +107,7 @@
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/dialog_rounded</item>
+        <item name="android:fontFamily">@font/montmedio</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme"

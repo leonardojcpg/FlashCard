@@ -232,7 +232,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         {
             // Foca o textField invalido e cria a mensagem para mostrar no alerta
             Support.requestFocus(txtEmail, this);
-            new StandardAlert(this, null).standardDialogQuestion(getString(R.string.msg_error_email_blank), getString(R.string.atention));
+            new StandardAlert(this, null).standardDialog(getString(R.string.msg_error_email_blank), getString(R.string.atention));
             return false;
         }
 
@@ -241,7 +241,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         {
             // Foca o textField invalido e cria a mensagem para mostrar no alerta
             Support.requestFocus(txtEmail, this);
-            new StandardAlert(this, null).standardDialogQuestion(getString(R.string.msg_erro_email_invalid), getString(R.string.atention));
+            new StandardAlert(this, null).standardDialog(getString(R.string.msg_erro_email_invalid), getString(R.string.atention));
             return false;
         }
 
@@ -250,7 +250,7 @@ public class FrmLogin extends FlashCardStudyActivity implements View.OnClickList
         {
             // Foca o textField invalido e cria a mensagem para mostrar no alerta
             Support.requestFocus(txtPassword, this);
-            new StandardAlert(this, null).standardDialogQuestion(getString(R.string.msg_error_password_blank), getString(R.string.atention));
+            new StandardAlert(this, null).standardDialog(getString(R.string.msg_error_password_blank), getString(R.string.atention));
             return false;
         }
 

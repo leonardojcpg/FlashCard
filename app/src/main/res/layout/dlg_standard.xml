@@ -27,7 +27,7 @@
         android:id="@+id/cmdOk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color"
+        android:background="@color/cor_app"
         android:text="@string/ok"
         android:textColor="@color/app_text_color" />
 

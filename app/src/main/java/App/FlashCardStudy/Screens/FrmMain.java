@@ -17,6 +17,8 @@ import com.google.android.material.tabs.TabLayout;
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
 import App.FlashCardStudy.Base.FlashCardStudyClick;
 import App.FlashCardStudy.R;
+import App.FlashCardStudy.Utils.StandardAlert;
+import App.FlashCardStudy.Utils.Support;
 
 public class FrmMain extends FlashCardStudyActivity implements View.OnClickListener, MenuItemCompat.OnActionExpandListener, BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, TabLayout.OnTabSelectedListener
 {
@@ -92,9 +94,54 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item)
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
     {
+        int iIdMenu = 0;
+        try
+        {
+            //Habilita o clique nos itens da bottom navigation
+            enableBottomNavClick(false);
+
+            //Pega o id do item do menu clicado
+            iIdMenu = menuItem.getItemId();
+
+            //Se o clique for no inicio
+            if (iIdMenu == R.id.item_home)
+            {
+                //Volta pra tela de inicio
+                //goToMainScreen();
+            }
+            //Se o clique for do historico de jogos
+            else if (iIdMenu == R.id.item_historico)
+            {
+                //Chama a tela de historico de jogos
+                //goToGameHistory();
+            }
+            //Se o clique for no item de perfil
+            else if (iIdMenu == R.id.item_profile)
+            {
+                //Chama a tela de perfil de usuario
+                //goToProfileScreen();
+            }
+
+        }
+        catch (Exception err)
+        {
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
+        }
         return false;
+    }
+
+    /**
+     * Método responsável por controlar a habilitação do clique nos itens da bottom navigation
+     */
+    private void enableBottomNavClick(boolean bEnableClick)
+    {
+        //Percorre os itens da bottom navigation e habilita/desabilita de acordo com o parâmetro passado
+        for (int iPosicao = 0; iPosicao < bnvNavigationMain.getMenu().size(); iPosicao++)
+        {
+            bnvNavigationMain.getMenu().getItem(iPosicao).setEnabled(bEnableClick);
+        }
     }
 
     @Override

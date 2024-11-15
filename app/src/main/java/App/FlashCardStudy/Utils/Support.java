@@ -14,6 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.util.Locale;
 
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
@@ -148,5 +151,52 @@ public class Support
             //Mostra o teclado
             ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(view, 0);
         }
+    }
+
+    /**
+     * Retorna um mensagem especifica de acordo com o erro ocorrido
+     */
+    public static String getMsgErr(Context context, Throwable throwable)
+    {
+        String sReturnData = "";
+
+        // Verifico se o erro e uma instancia de ExceptionConexaoInternet(criado pela pekus)
+        if ( throwable instanceof ExceptionInternetConnection)
+        {
+            // Seto a mensagem de retorno.
+            sReturnData = context.getString(R.string.msg_error_no_connection);
+        }
+        // Verifico se o erro e uma instancia de UnknownHostException.
+        else if ( throwable instanceof UnknownHostException)
+        {
+            // Seto a mensagem de retorno.
+            sReturnData = context.getString(R.string.msg_error_no_server);
+        }
+        // Verifico se o erro e uma instancia de SocketTimeoutException.
+        else if ( throwable instanceof SocketTimeoutException)
+        {
+            // Seto a mensagem de retorno.
+            sReturnData = context.getString(R.string.msg_erro_exception_timed_out);
+        }
+        // Verifico se o erro e uma instancia de ExceptionServidor(criado pela pekus)
+        else if ( throwable instanceof ServerException)
+        {
+            // Seto a mensagem de retorno.
+            sReturnData = context.getString(R.string.msg_erro_communication);
+        }
+        // Verifico se o erro e uma instancia de SocketException. (sem sinal
+        // de internet, nao encontrou o host...)
+        else if ( throwable instanceof SocketException)
+        {
+            // Seto a mensagem de retorno.
+            sReturnData = context.getString(R.string.msg_erro_communication);
+        }
+        else
+        {
+            sReturnData = context.getString(R.string.msg_erro_unknown_communication);
+        }
+
+        //Retorno a descricao do erro.
+        return sReturnData;
     }
 }

@@ -103,10 +103,9 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
                 goToLoginScreen();
             }
         }
-        catch (Exception e)
+        catch (Exception err)
         {
-            //Exibe mensagem de erro em forma de toast
-            Toast.makeText(this, R.string.msg_toast_login_failed, Toast.LENGTH_SHORT);
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
         }
 
     }
@@ -142,10 +141,9 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
                 Toast.makeText(this, R.string.msg_toast_register_success, Toast.LENGTH_SHORT).show();
             }
         }
-        catch (Exception e)
+        catch (Exception err)
         {
-            //Se tiver erro, exibe a mensagem
-            Toast.makeText(this, R.string.msg_toast_register_failed + e.getMessage(), Toast.LENGTH_LONG).show();
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
         }
     }
 
@@ -181,10 +179,10 @@ public class FrmRegister extends FlashCardStudyActivity implements View.OnClickL
                     }
                 }
             }
-        } catch (Exception err)
+        }
+        catch (Exception err)
         {
-            //Exibe mensagem de erro na forma de toast
-            Toast.makeText(this, R.string.msg_toast_register_failed, Toast.LENGTH_SHORT).show();
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
         }
         return false;
     }

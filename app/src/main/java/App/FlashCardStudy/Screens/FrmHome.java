@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
 import App.FlashCardStudy.Base.FlashCardStudyClick;
 import App.FlashCardStudy.R;
+import App.FlashCardStudy.Utils.StandardAlert;
 import App.FlashCardStudy.Utils.Support;
 
 
@@ -109,7 +110,7 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
         }
         catch (Exception err)
         {
-
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
         }
     }
 
@@ -123,6 +124,7 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
         }
         catch (Exception err)
         {
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
         }
     }
 
@@ -137,7 +139,7 @@ public class FrmHome extends FlashCardStudyActivity implements View.OnClickListe
         }
         catch (Exception err)
         {
-
+            new StandardAlert(this, null).standardDialog(Support.getMsgErr(this, err), getString(R.string.atention));
         }
     }
 

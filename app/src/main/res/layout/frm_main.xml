@@ -43,6 +43,14 @@
                 android:orientation="vertical"
                 android:visibility="gone"/>
 
+            <include layout="@layout/frm_home" />
+
+            <include layout="@layout/frm_history" />
+
+            <include layout="@layout/frm_profile" />
+
+            <include layout="@layout/frm_images" />
+
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </RelativeLayout>

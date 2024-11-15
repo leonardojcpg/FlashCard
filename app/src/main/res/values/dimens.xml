@@ -14,4 +14,6 @@
     <dimen name="elevacao_app_bar_principal">2dp</dimen>
     <dimen name="altura_barra_carrinho">40dp</dimen>
     <dimen name="tamanho_texto_16">16sp</dimen>
+    <dimen name="tamanho_item_marcacao">8dp</dimen>
+    <dimen name="height_edittext">45dp</dimen>
 </resources>

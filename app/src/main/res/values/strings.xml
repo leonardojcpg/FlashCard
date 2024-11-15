@@ -25,6 +25,10 @@
     <string name="profile_no">Don\'t have register?</string>
     <string name="password_forgot">Forgot password</string>
     <string name="login_instagram">Login Instagram</string>
+    <string name="toolbar_main">FlashCard</string>
+    <string name="toolbar_principal">Menu</string>
+    <string name="toolbar_register">Register</string>
+    <string name="toolbar_profile">Profile</string>
 
     <!-- Toast -->
     <string name="msg_toast_login_failed">Login failed</string>
@@ -32,7 +36,6 @@
     <string name="msg_error_email_blank">Please, fill the blank space</string>
     <string name="msg_erro_email_invalid">Invalid email</string>
     <string name="msg_error_password_blank">Please, fill the password field</string>
-    <string name="toolbar_register">Register</string>
     <string name="hint_name">Name</string>
     <string name="button_register">Register</string>
     <string name="profile_has">Already registered? Go to login!</string>
@@ -43,10 +46,8 @@
     <string name="msg_error_password">Please, complete password field correctly</string>
     <string name="flashcard_game_home_button">Flash Card Game</string>
     <string name="item_home_icon">Home</string>
-    <string name="toolbar_principal">Menu</string>
     <string name="item_history">History</string>
     <string name="profile_icon">Profile</string>
-    <string name="toolbar_main">FlashCard</string>
 
 
     <!-- Todas as mensagens erro -->
@@ -55,6 +56,9 @@
     <string name="msg_erro_exception_timed_out">Não foi possível conectar ao servidor, devido ao tempo de espera!</string>
     <string name="msg_erro_communication">Não foi possível conectar-se com o servidor!</string>
     <string name="msg_erro_unknown_communication">Não foi possível obter o erro ocorrido com o servidor!</string>
+    <string name="img_add">Image</string>
+    <string name="hint_image_edittext">Add your x-x image here </string>
+    <string name="img_add_button">Add</string>
 
 
 </resources>

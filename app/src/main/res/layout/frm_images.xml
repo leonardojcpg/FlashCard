@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cor_cinza_fundo"
+    android:orientation="vertical">
+
+    <!-- ADD IMAGE -->
+    <LinearLayout
+        android:id="@+id/lnlAddImgArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lnlFlashcardImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/tamanho_item_marcacao"
+                android:layout_height="@dimen/tamanho_item_marcacao"
+                android:src="@drawable/item_mark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/img_add"
+                android:textColor="@color/cor_app"
+                android:textSize="17sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnlImgRules"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_edittext"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/size_zero"
+                android:layout_height="match_parent"
+                android:layout_weight="70"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/hint_image_edittext"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnlButtonAddImg"
+                android:layout_width="@dimen/size_zero"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/cmdAddImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_background_app"
+                    android:text="@string/img_add_button"
+                    android:textColor="@color/cor_app_texto" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+    <!--  -->
+
+

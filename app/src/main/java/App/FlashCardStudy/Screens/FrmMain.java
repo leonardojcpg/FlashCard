@@ -124,6 +124,12 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
                 //Chama a tela de perfil de usuario
                 goToProfileScreen();
             }
+//            //Se o clique for no item de imagens
+//            else if (iIdMenu == R.id.item_images)
+//            {
+//                //Chama a tela de adicionar imagens
+//                goToImagesScreen();
+//            }
 
         }
         catch (Exception err)

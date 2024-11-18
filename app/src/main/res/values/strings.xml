@@ -13,9 +13,10 @@
     <string name="atention">Atention!</string>
 
     <!-- hints -->
-    <string name="hint_flashcard">Digite aqui sua resposta</string>
+    <string name="hint_flashcard">Save here your answer!</string>
     <string name="hint_login">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_image_edittext">Add your x-x image here </string>
 
     <!-- toolbar -->
     <string name="toolbar_login">Login</string>
@@ -49,7 +50,6 @@
     <string name="item_history">History</string>
     <string name="profile_icon">Profile</string>
 
-
     <!-- Todas as mensagens erro -->
     <string name="msg_error_no_connection">Não há conexão com a internet. Por favor verifique e tente novamente!</string>
     <string name="msg_error_no_server">Houve um erro ao tentar conectar-se ao servidor!</string>
@@ -57,8 +57,17 @@
     <string name="msg_erro_communication">Não foi possível conectar-se com o servidor!</string>
     <string name="msg_erro_unknown_communication">Não foi possível obter o erro ocorrido com o servidor!</string>
     <string name="img_add">Image</string>
-    <string name="hint_image_edittext">Add your x-x image here </string>
+
+    <!-- Buttons -->
     <string name="img_add_button">Add</string>
+    <string name="button_card_save">Save</string>
+
+    <string name="toolbar_card">Card</string>
+    <string name="msg_flashcard_saved_success">Flashcard successfully saved!</string>
+    <string name="msg_flashcard_saved_error">Error while saving flashcard</string>
+    <string name="msg_flashcard_error_upload">Error while uploading flashcard</string>
+    <string name="msg_flashcard_load_error">Error loading image</string>
+    <string name="jpg">.jpg</string>
 
 
 </resources>

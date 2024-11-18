@@ -128,7 +128,7 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
 //            else if (iIdMenu == R.id.item_images)
 //            {
 //                //Chama a tela de adicionar imagens
-//                goToImagesScreen();
+//                goToCardScreen();
 //            }
 
         }
@@ -199,6 +199,18 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
 
         //Chama a tela principal
         intent = new Intent(this, FrmProfile.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Método que chama a tela de imagem
+     */
+    private void goToCardScreen()
+    {
+        Intent intent = null;
+
+        //Chama a tela de imagem
+        intent = new Intent(this, FrmCard.class);
         startActivity(intent);
     }
 }

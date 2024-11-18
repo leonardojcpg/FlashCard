@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:elevation="2dp"
-        app:title="@string/back_toolbar" />
+        app:title="@string/toolbar_card" />
 
     <!-- Layout principal que centraliza o conteúdo abaixo da Toolbar -->
     <LinearLayout
@@ -22,52 +22,22 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Layout para a área da imagem com as setas -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        <!-- Imagem principal -->
+        <ImageView
+            android:id="@+id/imgFlashCard"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#DDDDDD"
+            android:contentDescription="@string/flash_card_description"
+            android:scaleType="centerCrop" />
 
-            <!-- Seta para a esquerda -->
-            <ImageButton
-                android:id="@+id/cmdPreviousImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/previous_image"
-                android:padding="8dp"
-                android:rotationY="180"
-                android:scaleType="centerInside"
-                android:src="@drawable/arrow_icon" />
-
-            <!-- Imagem principal -->
-            <ImageView
-                android:id="@+id/imgFlashCard"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="#DDDDDD"
-                android:contentDescription="@string/flash_card_description"
-                android:scaleType="centerCrop" />
-
-            <!-- Seta para a direita -->
-            <ImageButton
-                android:id="@+id/cmdNextImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/next_image"
-                android:padding="8dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/arrow_icon" />
-        </LinearLayout>
 
         <!-- Campo de texto para resposta -->
         <EditText
             android:id="@+id/txtAnswerFlashCard"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
@@ -80,12 +50,12 @@
         <!-- Botão de envio -->
         <Button
             android:id="@+id/cmdSendResponse"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/button_app_width"
             android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:background="@drawable/button_background_app"
-            android:text="@string/button_flashcard_send"
+            android:text="@string/button_card_save"
             android:textColor="@color/cor_app_texto" />
 
         <!-- Mensagem de feedback para o usuário -->

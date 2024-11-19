@@ -16,6 +16,13 @@
         android:title="@string/item_history"/>
 
     <item
+        android:id="@+id/item_card"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/img_nav_icon"
+        android:title="@string/card_icon"/>
+
+    <item
         android:id="@+id/item_profile"
         app:showAsAction="ifRoom"
         android:enabled="true"

@@ -21,6 +21,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import App.FlashCardStudy.Base.FlashCardStudyActivity;
@@ -81,6 +82,7 @@ public class FrmCard extends FlashCardStudyActivity implements View.OnClickListe
 
         // Configura o clique na imagem para selecionar uma nova
         imgFlashCard.setOnClickListener(flashCardClick);
+        cmdSendResponse.setOnClickListener(flashCardClick);
     }
 
     @Override
@@ -105,6 +107,12 @@ public class FrmCard extends FlashCardStudyActivity implements View.OnClickListe
         {
             //Faz o upload da imagem
             openFileChooser();
+        }
+        //Se o clique for do botao de salvar resposta
+        else if (view == cmdSendResponse)
+        {
+            //Valida o campo de resposta do card
+            validateCardAnswer();
         }
     }
 
@@ -227,6 +235,82 @@ public class FrmCard extends FlashCardStudyActivity implements View.OnClickListe
                     }
                 });
         })).addOnFailureListener(e -> new StandardAlert(this, null).standardDialog(getString(R.string.msg_flashcard_error_upload), getString(R.string.atention)));
+    }
+
+    /**
+     * Método que valida a resposta do card
+     */
+    private void validateCardAnswer()
+    {
+        String imageName = "";
+
+        //Se a resposta tiver em branco
+        if (imageName.isEmpty())
+        {
+            //Mostra mensagem
+            lblFeedbackAnswer.setText(R.string.msg_validation_card_answer);
+        }
+        else
+        {
+            //Salva a resposta do card
+            saveFlashcardAnswer(imageName);
+        }
+    }
+
+    /**
+     * Método que salva o nome do flashcard no firebase
+     */
+    private void saveFlashcardAnswer(String imageName)
+    {
+        String currentImgUrl = "";
+        String responseFlashcardId = "";
+
+
+        //Se o array de imagens estiver vazio
+        if (arrUrlImages == null || arrUrlImages.isEmpty() || imgFlashCard == null)
+        {
+            //Mostra a mensagem que nao tem nenhum flashcard carregado
+            lblFeedbackAnswer.setText(R.string.msg_error_no_flashcard_loaded);
+            return;
+        }
+
+        //Identifica a url do flashcard atual
+        currentImgUrl = (String) imgFlashCard.getTag();
+
+        //Se nao tiver flashcard img atual
+        if (currentImgUrl == null || currentImgUrl.isEmpty())
+        {
+            //Mostra a mensagem de erro ao identificar o flashcard atual
+            lblFeedbackAnswer.setText(R.string.msg_error_current_flashcard);
+            return;
+        }
+
+        //Cria um mapa de dados para salvar no firestore do firebase
+        HashMap<String, Object> flashcardData = new HashMap<>();
+        flashcardData.put(Const.HASH_MAP_URL_IMAGEM_FIREBASE, currentImgUrl);
+        flashcardData.put(Const.HASH_MAP_FLASHCARDS_NAME, imageName);
+
+        //Gera um identificador unico para a resposta
+        responseFlashcardId = db.collection(Const.HASH_MAP_FLASHCARDS_RESPONSES).document().getId();
+
+        // Salvar a resposta no Firestore
+        db.collection(Const.HASH_MAP_FLASHCARDS_RESPONSES)
+            .document(responseFlashcardId)
+            .set(flashcardData)
+            .addOnCompleteListener(task ->
+            {
+                if (task.isSuccessful())
+                {
+                    lblFeedbackAnswer.setText(R.string.msg_flashcard_answer_saved);
+
+                    // Limpa o campo de resposta
+                    txtAnswerFlashCard.setText("");
+                }
+                else
+                {
+                    lblFeedbackAnswer.setText(R.string.msg_error_flashcard_answer);
+                }
+            });
     }
 
     /**

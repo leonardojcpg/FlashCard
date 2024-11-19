@@ -57,7 +57,7 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
         flashCardClick = new FlashCardStudyClick(this);
 
         //Definimos o listener no botao de navegacao inferior
-        bnvNavigationMain.setOnClickListener(flashCardClick);
+        bnvNavigationMain.setOnNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -124,12 +124,12 @@ public class FrmMain extends FlashCardStudyActivity implements View.OnClickListe
                 //Chama a tela de perfil de usuario
                 goToProfileScreen();
             }
-//            //Se o clique for no item de imagens
-//            else if (iIdMenu == R.id.item_images)
-//            {
-//                //Chama a tela de adicionar imagens
-//                goToCardScreen();
-//            }
+            //Se o clique for no item de imagens
+            else if (iIdMenu == R.id.item_card)
+            {
+                //Chama a tela de adicionar imagens
+                goToCardScreen();
+            }
 
         }
         catch (Exception err)

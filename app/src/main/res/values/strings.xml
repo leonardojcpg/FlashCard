@@ -68,6 +68,12 @@
     <string name="msg_flashcard_error_upload">Error while uploading flashcard</string>
     <string name="msg_flashcard_load_error">Error loading image</string>
     <string name="jpg">.jpg</string>
+    <string name="msg_error_no_flashcard_loaded">No flashcards loaded</string>
+    <string name="msg_error_current_flashcard">No current flashcard</string>
+    <string name="msg_flashcard_answer_saved">Flashcard answer successfully saved</string>
+    <string name="msg_error_flashcard_answer">Error saving flashcard answer</string>
+    <string name="msg_validation_card_answer">Please, save card answer!</string>
+    <string name="card_icon">Card</string>
 
 
 </resources>

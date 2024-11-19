@@ -79,4 +79,6 @@ public interface Const
     //Constantes para imagens do firebase
     String HASH_MAP_URL_IMAGEM_FIREBASE = "imageUrl";
     String HASH_MAP_FLASHCARDS_FIREBASE = "flashcards";
+    String HASH_MAP_FLASHCARDS_NAME = "imageName";
+    String HASH_MAP_FLASHCARDS_RESPONSES = "responses";
 }

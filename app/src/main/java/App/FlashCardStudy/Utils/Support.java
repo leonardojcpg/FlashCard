@@ -1,6 +1,8 @@
 package App.FlashCardStudy.Utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -199,4 +201,18 @@ public class Support
         //Retorno a descricao do erro.
         return sReturnData;
     }
+
+    /**
+     * Método que finaliza as activities
+     */
+    /**
+     * Finaliza a tela e passa uma intent junto
+     */
+    public static void finishActivity(Activity activity, int iResult, Intent intent)
+    {
+        //Seta o resultado e finaliza a tela
+        activity.setResult(iResult, intent);
+        activity.finish();
+    }
+
 }

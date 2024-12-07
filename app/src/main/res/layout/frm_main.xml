@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bnvNavigationMain">
 
-        <!-- APP BAR LAYOUT para a animação da toolbar + tablayout -->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
@@ -26,7 +25,6 @@
                 style="@style/AppToolbar"
                 android:elevation="@dimen/elevacao_app_bar_principal"
                 app:title="@string/toolbar_main" />
-
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -41,18 +39,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
-            <include layout="@layout/frm_home" />
+            <include
+                android:id="@+id/frm_home"
+                layout="@layout/frm_home"
+                android:visibility="gone" />
 
-            <include layout="@layout/frm_history" />
+            <include
+                android:id="@+id/frm_history"
+                layout="@layout/frm_history"
+                android:visibility="gone" />
 
-            <include layout="@layout/frm_profile" />
+            <include
+                android:id="@+id/frm_profile"
+                layout="@layout/frm_profile"
+                android:visibility="gone" />
 
-            <include layout="@layout/frm_images" />
+            <include
+                android:id="@+id/frm_images"
+                layout="@layout/frm_images"
+                android:visibility="gone" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
     </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -63,6 +72,6 @@
         android:layout_alignParentBottom="true"
         android:visibility="visible"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu_bottom_nav"/>
+        app:menu="@menu/menu_bottom_nav" />
 
 </RelativeLayout>
